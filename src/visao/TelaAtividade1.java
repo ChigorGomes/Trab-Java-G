@@ -49,52 +49,53 @@ public class TelaAtividade1 extends javax.swing.JFrame {
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabelTituloAtv.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabelTituloAtv.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTituloAtv.setText("Descrição de Atividade");
         getContentPane().add(jLabelTituloAtv);
-        jLabelTituloAtv.setBounds(40, 30, 230, 50);
+        jLabelTituloAtv.setBounds(20, 10, 230, 50);
         jLabelTituloAtv.getAccessibleContext().setAccessibleName("Atividade 1 ");
 
         jLabelDisciplinas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDisciplinas.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDisciplinas.setText("Disciplina:");
         getContentPane().add(jLabelDisciplinas);
-        jLabelDisciplinas.setBounds(70, 90, 90, 40);
+        jLabelDisciplinas.setBounds(20, 70, 90, 40);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Técnicas Avançadas em Programação" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(150, 100, 310, 20);
+        jComboBox1.setBounds(130, 80, 310, 29);
 
         jLabelAlunosOrientados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAlunosOrientados.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAlunosOrientados.setText("Alunos Orientados:");
         getContentPane().add(jLabelAlunosOrientados);
-        jLabelAlunosOrientados.setBounds(70, 150, 140, 30);
+        jLabelAlunosOrientados.setBounds(20, 140, 140, 30);
 
         jRadioButtonAlunosDoutorado.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosDoutorado.setText("Alunos de Doutorado");
         getContentPane().add(jRadioButtonAlunosDoutorado);
-        jRadioButtonAlunosDoutorado.setBounds(200, 280, 180, 23);
+        jRadioButtonAlunosDoutorado.setBounds(390, 180, 180, 23);
 
         jRadioButtonAlunosMestrado.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosMestrado.setText("Alunos de Mestrado");
         getContentPane().add(jRadioButtonAlunosMestrado);
-        jRadioButtonAlunosMestrado.setBounds(200, 240, 180, 23);
+        jRadioButtonAlunosMestrado.setBounds(170, 180, 180, 23);
 
         jRadioButtonAlunosIniciacao.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosIniciacao.setSelected(true);
         jRadioButtonAlunosIniciacao.setText("Alunos de Graduação - Iniciação Científica");
         getContentPane().add(jRadioButtonAlunosIniciacao);
-        jRadioButtonAlunosIniciacao.setBounds(200, 200, 260, 23);
+        jRadioButtonAlunosIniciacao.setBounds(390, 140, 310, 23);
 
         jLabelArtigosPub.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelArtigosPub.setForeground(new java.awt.Color(255, 255, 255));
         jLabelArtigosPub.setText("Artigos Publicados:");
         getContentPane().add(jLabelArtigosPub);
-        jLabelArtigosPub.setBounds(70, 340, 140, 30);
+        jLabelArtigosPub.setBounds(20, 230, 140, 30);
 
         jButtonUploadArtigo.setText("artigo-tap.pdf");
         jButtonUploadArtigo.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +104,7 @@ public class TelaAtividade1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonUploadArtigo);
-        jButtonUploadArtigo.setBounds(210, 340, 170, 30);
+        jButtonUploadArtigo.setBounds(190, 230, 170, 30);
 
         jRadioButtonAlunosGraduacao.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosGraduacao.setText("Alunos de Graduação - TCC");
@@ -113,20 +114,20 @@ public class TelaAtividade1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadioButtonAlunosGraduacao);
-        jRadioButtonAlunosGraduacao.setBounds(200, 160, 180, 23);
+        jRadioButtonAlunosGraduacao.setBounds(170, 140, 180, 23);
 
         jLabelAtivCoord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAtivCoord.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAtivCoord.setText("Atividades de Coordenação:");
         getContentPane().add(jLabelAtivCoord);
-        jLabelAtivCoord.setBounds(70, 400, 190, 20);
+        jLabelAtivCoord.setBounds(20, 300, 230, 20);
 
         jEditorPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jEditorPane1.setText("No decorrer do semestre desenvolvemos atividades com ênfase na linguagem de programação Java. \nAprimoramos conhecimentos aprendendo a inicializar projetos em base da realidade atual de determinadas situações de diversas profissões.");
         jScrollPane1.setViewportView(jEditorPane1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(250, 400, 350, 150);
+        jScrollPane1.setBounds(230, 290, 350, 150);
 
         jButtonAtualizar.setBackground(new java.awt.Color(0, 153, 0));
         jButtonAtualizar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -137,11 +138,13 @@ public class TelaAtividade1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAtualizar);
-        jButtonAtualizar.setBounds(300, 600, 120, 40);
+        jButtonAtualizar.setBounds(290, 460, 120, 40);
 
         jLabelFundoDescricao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
+        jLabelFundoDescricao.setMaximumSize(new java.awt.Dimension(100, 956));
+        jLabelFundoDescricao.setPreferredSize(new java.awt.Dimension(1000, 956));
         getContentPane().add(jLabelFundoDescricao);
-        jLabelFundoDescricao.setBounds(0, -40, 680, 930);
+        jLabelFundoDescricao.setBounds(-20, -50, 710, 930);
 
         jMenuAjudaProf.setText("Opções");
 
@@ -169,7 +172,8 @@ public class TelaAtividade1 extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        pack();
+        setSize(new java.awt.Dimension(712, 651));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButtonAlunosGraduacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAlunosGraduacaoActionPerformed

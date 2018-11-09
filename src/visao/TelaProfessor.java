@@ -84,7 +84,7 @@ public class TelaProfessor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonNovaAtividade);
-        jButtonNovaAtividade.setBounds(120, 380, 130, 50);
+        jButtonNovaAtividade.setBounds(130, 360, 130, 50);
 
         jButtonAlterarAtividade.setBackground(new java.awt.Color(255, 102, 0));
         jButtonAlterarAtividade.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -95,13 +95,13 @@ public class TelaProfessor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAlterarAtividade);
-        jButtonAlterarAtividade.setBounds(300, 380, 130, 50);
+        jButtonAlterarAtividade.setBounds(290, 360, 150, 50);
 
         jButtonRemoverAtividade.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemoverAtividade.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRemoverAtividade.setText("Remover Atividade");
         getContentPane().add(jButtonRemoverAtividade);
-        jButtonRemoverAtividade.setBounds(470, 380, 150, 50);
+        jButtonRemoverAtividade.setBounds(480, 360, 150, 50);
 
         jLabelTituloProf.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabelTituloProf.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,11 +131,11 @@ public class TelaProfessor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(590, 30, 130, 40);
+        jButton1.setBounds(510, 30, 130, 40);
 
         jLabelFundoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         getContentPane().add(jLabelFundoLogin);
-        jLabelFundoLogin.setBounds(0, 0, 750, 530);
+        jLabelFundoLogin.setBounds(0, 0, 720, 530);
 
         jMenuAjudaProf.setText("Opções");
 
@@ -163,7 +163,7 @@ public class TelaProfessor extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(763, 628));
+        setSize(new java.awt.Dimension(723, 527));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

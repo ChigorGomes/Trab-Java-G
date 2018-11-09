@@ -28,40 +28,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButtonAlberto = new javax.swing.JButton();
-        jButtonAltigran = new javax.swing.JButton();
-        jButtonPassito = new javax.swing.JButton();
-        jButtonAndre = new javax.swing.JButton();
-        Arilo = new javax.swing.JButton();
-        jButtonBruno = new javax.swing.JButton();
-        jButtonCesar = new javax.swing.JButton();
-        jButtonDavid = new javax.swing.JButton();
-        jButtonEdjair = new javax.swing.JButton();
-        jButtonEdjar = new javax.swing.JButton();
-        jButtonEdleno = new javax.swing.JButton();
-        jButtonEdson = new javax.swing.JButton();
-        jButtonNakamura = new javax.swing.JButton();
-        jButtonSouto = new javax.swing.JButton();
-        jButtonFeitosa = new javax.swing.JButton();
-        jButtonElaine = new javax.swing.JButton();
-        jButtonEulanda = new javax.swing.JButton();
-        jButtonFabiola = new javax.swing.JButton();
-        jButtonHoracio = new javax.swing.JButton();
-        jButtonJoao = new javax.swing.JButton();
-        jButtonNetto = new javax.swing.JButton();
-        jButtonPio = new javax.swing.JButton();
-        jButtonReginaldo = new javax.swing.JButton();
-        jButtonLeandro = new javax.swing.JButton();
-        jButtonMarco = new javax.swing.JButton();
-        jButtonMoises = new javax.swing.JButton();
-        jButtonBarreto = new javax.swing.JButton();
-        jButtonRosiane = new javax.swing.JButton();
-        jButtonRuiter = new javax.swing.JButton();
-        jButtonTanara = new javax.swing.JButton();
-        jButtonTayana = new javax.swing.JButton();
         jButtonAddProfessor = new javax.swing.JButton();
         jButtonAlterarProfessor = new javax.swing.JButton();
         jButtonRemoverProfessor = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAjuda = new javax.swing.JMenu();
@@ -69,6 +40,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItemSair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -76,285 +48,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Corpo Docente");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(40, 20, 200, 20);
-
-        jButtonAlberto.setText("Alberto N. de Castro Junior");
-        jButtonAlberto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAlbertoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAlberto);
-        jButtonAlberto.setBounds(40, 70, 170, 23);
-
-        jButtonAltigran.setText("Altigran Soares da Silva");
-        jButtonAltigran.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltigranActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAltigran);
-        jButtonAltigran.setBounds(40, 130, 170, 23);
-
-        jButtonPassito.setText("Alexandre Passito");
-        jButtonPassito.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPassitoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonPassito);
-        jButtonPassito.setBounds(40, 100, 170, 23);
-
-        jButtonAndre.setText("Andre Lima Carvalho");
-        jButtonAndre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAndreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAndre);
-        jButtonAndre.setBounds(40, 160, 170, 23);
-
-        Arilo.setText("Arilo C. Dias Neto");
-        Arilo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AriloActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Arilo);
-        Arilo.setBounds(40, 190, 170, 23);
-
-        jButtonBruno.setText("Bruno Gadelha");
-        jButtonBruno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBrunoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonBruno);
-        jButtonBruno.setBounds(40, 220, 170, 23);
-
-        jButtonCesar.setText("César Augusto V. Melo");
-        jButtonCesar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCesarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonCesar);
-        jButtonCesar.setBounds(40, 250, 170, 23);
-
-        jButtonDavid.setText("David Fernandes de Oliveira");
-        jButtonDavid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDavidActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonDavid);
-        jButtonDavid.setBounds(40, 280, 170, 23);
-
-        jButtonEdjair.setText("Edjair de Sousa Mota");
-        jButtonEdjair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEdjairActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonEdjair);
-        jButtonEdjair.setBounds(40, 310, 170, 23);
-
-        jButtonEdjar.setText("Edjar de Sousa Mota");
-        jButtonEdjar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEdjarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonEdjar);
-        jButtonEdjar.setBounds(40, 340, 170, 23);
-
-        jButtonEdleno.setText("Edleno S. de Moura");
-        jButtonEdleno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEdlenoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonEdleno);
-        jButtonEdleno.setBounds(240, 70, 160, 23);
-
-        jButtonEdson.setText("Edson N. Silva Junior");
-        jButtonEdson.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEdsonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonEdson);
-        jButtonEdson.setBounds(240, 100, 160, 23);
-
-        jButtonNakamura.setText("Eduardo Freire Nakamura");
-        jButtonNakamura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNakamuraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonNakamura);
-        jButtonNakamura.setBounds(240, 130, 160, 23);
-
-        jButtonSouto.setText("Eduardo J. P. Souto");
-        jButtonSouto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSoutoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonSouto);
-        jButtonSouto.setBounds(240, 160, 160, 23);
-
-        jButtonFeitosa.setText("Eduardo Luzeiro Feitosa");
-        jButtonFeitosa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFeitosaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonFeitosa);
-        jButtonFeitosa.setBounds(240, 190, 160, 23);
-
-        jButtonElaine.setText("Elaine Harada T. de Oliveira");
-        jButtonElaine.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonElaineActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonElaine);
-        jButtonElaine.setBounds(240, 220, 160, 23);
-
-        jButtonEulanda.setText("Eulanda M. dos Santos");
-        jButtonEulanda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEulandaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonEulanda);
-        jButtonEulanda.setBounds(240, 250, 160, 23);
-
-        jButtonFabiola.setText("Fabiola G. Nakamura");
-        jButtonFabiola.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFabiolaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonFabiola);
-        jButtonFabiola.setBounds(240, 280, 160, 23);
-
-        jButtonHoracio.setText("Horacio A. B. F. Oliveira");
-        jButtonHoracio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHoracioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonHoracio);
-        jButtonHoracio.setBounds(240, 310, 160, 23);
-
-        jButtonJoao.setText("João Marco B. Cavalcanti");
-        jButtonJoao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonJoaoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonJoao);
-        jButtonJoao.setBounds(240, 340, 160, 23);
-
-        jButtonNetto.setText("José F. Magalhães Netto");
-        jButtonNetto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNettoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonNetto);
-        jButtonNetto.setBounds(430, 70, 160, 23);
-
-        jButtonPio.setText("José Luiz de Souza Pio");
-        jButtonPio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonPio);
-        jButtonPio.setBounds(430, 100, 160, 23);
-
-        jButtonReginaldo.setText("José Reginaldo Carvalho");
-        jButtonReginaldo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReginaldoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonReginaldo);
-        jButtonReginaldo.setBounds(430, 130, 160, 23);
-
-        jButtonLeandro.setText("Leandro S. G. Carvalho");
-        jButtonLeandro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLeandroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonLeandro);
-        jButtonLeandro.setBounds(430, 160, 160, 23);
-
-        jButtonMarco.setText("Marco A. P. Cristo");
-        jButtonMarco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMarcoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonMarco);
-        jButtonMarco.setBounds(430, 190, 160, 23);
-
-        jButtonMoises.setText("Moisés G. Carvalho");
-        jButtonMoises.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMoisesActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonMoises);
-        jButtonMoises.setBounds(430, 220, 160, 23);
-
-        jButtonBarreto.setText("Raimundo S. Barreto");
-        jButtonBarreto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBarretoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonBarreto);
-        jButtonBarreto.setBounds(430, 250, 160, 23);
-
-        jButtonRosiane.setText("Rosiane F. Rodrigues");
-        jButtonRosiane.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRosianeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonRosiane);
-        jButtonRosiane.setBounds(430, 280, 160, 23);
-
-        jButtonRuiter.setText("Ruiter B. Caldas");
-        jButtonRuiter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRuiterActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonRuiter);
-        jButtonRuiter.setBounds(430, 310, 160, 23);
-
-        jButtonTanara.setText("Tanara Lauschner");
-        jButtonTanara.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTanaraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonTanara);
-        jButtonTanara.setBounds(430, 340, 160, 23);
-
-        jButtonTayana.setText("Tayana U. Conte");
-        jButtonTayana.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonTayanaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonTayana);
-        jButtonTayana.setBounds(620, 70, 140, 23);
 
         jButtonAddProfessor.setBackground(new java.awt.Color(0, 153, 0));
         jButtonAddProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -365,7 +58,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAddProfessor);
-        jButtonAddProfessor.setBounds(220, 420, 110, 50);
+        jButtonAddProfessor.setBounds(250, 420, 110, 50);
 
         jButtonAlterarProfessor.setBackground(new java.awt.Color(255, 102, 0));
         jButtonAlterarProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -376,17 +69,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAlterarProfessor);
-        jButtonAlterarProfessor.setBounds(360, 420, 100, 50);
+        jButtonAlterarProfessor.setBounds(390, 420, 100, 50);
 
         jButtonRemoverProfessor.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemoverProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRemoverProfessor.setText("Remover");
         getContentPane().add(jButtonRemoverProfessor);
-        jButtonRemoverProfessor.setBounds(490, 420, 100, 50);
+        jButtonRemoverProfessor.setBounds(520, 420, 100, 50);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(50, 70, 720, 280);
 
         jLabelFundoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         getContentPane().add(jLabelFundoPrincipal);
-        jLabelFundoPrincipal.setBounds(0, 0, 2000, 570);
+        jLabelFundoPrincipal.setBounds(0, 0, 820, 500);
 
         jMenuAjuda.setText("Ajuda");
         jMenuBar1.add(jMenuAjuda);
@@ -405,111 +114,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(813, 589));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonAlbertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlbertoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonAlbertoActionPerformed
-
-    private void jButtonPassitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPassitoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonPassitoActionPerformed
-
-    private void jButtonElaineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonElaineActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonElaineActionPerformed
-
-    private void jButtonReginaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReginaldoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonReginaldoActionPerformed
-
-    private void jButtonAltigranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltigranActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonAltigranActionPerformed
-
-    private void jButtonHoracioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHoracioActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonHoracioActionPerformed
-
-    private void jButtonTanaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTanaraActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonTanaraActionPerformed
-
-    private void jButtonTayanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTayanaActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonTayanaActionPerformed
-
-    private void jButtonAndreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAndreActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonAndreActionPerformed
-
-    private void AriloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AriloActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_AriloActionPerformed
-
-    private void jButtonBrunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrunoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonBrunoActionPerformed
-
-    private void jButtonCesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCesarActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonCesarActionPerformed
-
-    private void jButtonDavidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDavidActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonDavidActionPerformed
-
-    private void jButtonEdjairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdjairActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonEdjairActionPerformed
-
-    private void jButtonEdjarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdjarActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonEdjarActionPerformed
-
-    private void jButtonEdlenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdlenoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonEdlenoActionPerformed
-
-    private void jButtonLeandroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeandroActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonLeandroActionPerformed
 
     private void jButtonAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProfessorActionPerformed
         TelaAddProfessor telaAddProf = new TelaAddProfessor ();
@@ -522,90 +129,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         telasair.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItemSairActionPerformed
-
-    private void jButtonEdsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEdsonActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonEdsonActionPerformed
-
-    private void jButtonNakamuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNakamuraActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonNakamuraActionPerformed
-
-    private void jButtonSoutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSoutoActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonSoutoActionPerformed
-
-    private void jButtonFeitosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFeitosaActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonFeitosaActionPerformed
-
-    private void jButtonEulandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEulandaActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonEulandaActionPerformed
-
-    private void jButtonFabiolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFabiolaActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonFabiolaActionPerformed
-
-    private void jButtonJoaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJoaoActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonJoaoActionPerformed
-
-    private void jButtonNettoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNettoActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonNettoActionPerformed
-
-    private void jButtonPioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPioActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonPioActionPerformed
-
-    private void jButtonMarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMarcoActionPerformed
-        TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonMarcoActionPerformed
-
-    private void jButtonMoisesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMoisesActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonMoisesActionPerformed
-
-    private void jButtonBarretoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBarretoActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonBarretoActionPerformed
-
-    private void jButtonRosianeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRosianeActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonRosianeActionPerformed
-
-    private void jButtonRuiterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRuiterActionPerformed
-         TelaProfessor telaprof = new TelaProfessor();
-        telaprof.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButtonRuiterActionPerformed
 
     private void jButtonAlterarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProfessorActionPerformed
         // TODO add your handling code here:
@@ -647,45 +170,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Arilo;
     private javax.swing.JButton jButtonAddProfessor;
-    private javax.swing.JButton jButtonAlberto;
     private javax.swing.JButton jButtonAlterarProfessor;
-    private javax.swing.JButton jButtonAltigran;
-    private javax.swing.JButton jButtonAndre;
-    private javax.swing.JButton jButtonBarreto;
-    private javax.swing.JButton jButtonBruno;
-    private javax.swing.JButton jButtonCesar;
-    private javax.swing.JButton jButtonDavid;
-    private javax.swing.JButton jButtonEdjair;
-    private javax.swing.JButton jButtonEdjar;
-    private javax.swing.JButton jButtonEdleno;
-    private javax.swing.JButton jButtonEdson;
-    private javax.swing.JButton jButtonElaine;
-    private javax.swing.JButton jButtonEulanda;
-    private javax.swing.JButton jButtonFabiola;
-    private javax.swing.JButton jButtonFeitosa;
-    private javax.swing.JButton jButtonHoracio;
-    private javax.swing.JButton jButtonJoao;
-    private javax.swing.JButton jButtonLeandro;
-    private javax.swing.JButton jButtonMarco;
-    private javax.swing.JButton jButtonMoises;
-    private javax.swing.JButton jButtonNakamura;
-    private javax.swing.JButton jButtonNetto;
-    private javax.swing.JButton jButtonPassito;
-    private javax.swing.JButton jButtonPio;
-    private javax.swing.JButton jButtonReginaldo;
     private javax.swing.JButton jButtonRemoverProfessor;
-    private javax.swing.JButton jButtonRosiane;
-    private javax.swing.JButton jButtonRuiter;
-    private javax.swing.JButton jButtonSouto;
-    private javax.swing.JButton jButtonTanara;
-    private javax.swing.JButton jButtonTayana;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFundoPrincipal;
     private javax.swing.JMenu jMenuAjuda;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemSair;
     private static javax.swing.JMenu jMenuSair;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

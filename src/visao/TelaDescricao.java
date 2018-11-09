@@ -53,7 +53,7 @@ public class TelaDescricao extends javax.swing.JFrame {
         jLabelInfoRit.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInfoRit.setText("Informações Relatório Individual de Trabalho - RIT");
         getContentPane().add(jLabelInfoRit);
-        jLabelInfoRit.setBounds(40, 20, 490, 40);
+        jLabelInfoRit.setBounds(40, 20, 550, 40);
 
         jLabelDisciplinas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelDisciplinas.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,7 +74,7 @@ public class TelaDescricao extends javax.swing.JFrame {
         jLabelAlunosOrientados.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAlunosOrientados.setText("Alunos Orientados:");
         getContentPane().add(jLabelAlunosOrientados);
-        jLabelAlunosOrientados.setBounds(60, 130, 140, 30);
+        jLabelAlunosOrientados.setBounds(60, 130, 150, 30);
 
         jRadioButtonAlunosGraduacao.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosGraduacao.setText("Alunos de Graduação - TCC");
@@ -84,28 +84,28 @@ public class TelaDescricao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadioButtonAlunosGraduacao);
-        jRadioButtonAlunosGraduacao.setBounds(180, 130, 180, 23);
+        jRadioButtonAlunosGraduacao.setBounds(200, 130, 180, 23);
 
         jRadioButtonAlunosIniciacao.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosIniciacao.setText("Alunos de Graduação - Iniciação Científica");
         getContentPane().add(jRadioButtonAlunosIniciacao);
-        jRadioButtonAlunosIniciacao.setBounds(180, 170, 260, 23);
+        jRadioButtonAlunosIniciacao.setBounds(390, 130, 300, 23);
 
         jRadioButtonAlunosMestrado.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosMestrado.setText("Alunos de Mestrado");
         getContentPane().add(jRadioButtonAlunosMestrado);
-        jRadioButtonAlunosMestrado.setBounds(180, 210, 180, 23);
+        jRadioButtonAlunosMestrado.setBounds(200, 170, 180, 23);
 
         jRadioButtonAlunosDoutorado.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonAlunosDoutorado.setText("Alunos de Doutorado");
         getContentPane().add(jRadioButtonAlunosDoutorado);
-        jRadioButtonAlunosDoutorado.setBounds(180, 250, 180, 23);
+        jRadioButtonAlunosDoutorado.setBounds(390, 160, 180, 23);
 
         jLabelArtigosPub.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelArtigosPub.setForeground(new java.awt.Color(255, 255, 255));
         jLabelArtigosPub.setText("Artigos Publicados:");
         getContentPane().add(jLabelArtigosPub);
-        jLabelArtigosPub.setBounds(60, 300, 140, 30);
+        jLabelArtigosPub.setBounds(60, 220, 140, 30);
 
         jButtonUploadArtigo.setText("Faça o upload");
         jButtonUploadArtigo.addActionListener(new java.awt.event.ActionListener() {
@@ -114,13 +114,13 @@ public class TelaDescricao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonUploadArtigo);
-        jButtonUploadArtigo.setBounds(190, 300, 170, 30);
+        jButtonUploadArtigo.setBounds(210, 220, 170, 30);
 
         jLabelAtivCoord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAtivCoord.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAtivCoord.setText("Atividades de Coordenação:");
         getContentPane().add(jLabelAtivCoord);
-        jLabelAtivCoord.setBounds(60, 360, 190, 20);
+        jLabelAtivCoord.setBounds(60, 280, 240, 20);
 
         jTextFieldDescAtividadeCoord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,11 +128,11 @@ public class TelaDescricao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextFieldDescAtividadeCoord);
-        jTextFieldDescAtividadeCoord.setBounds(240, 360, 310, 130);
+        jTextFieldDescAtividadeCoord.setBounds(260, 280, 310, 130);
 
         jLabelFundoDescricao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         getContentPane().add(jLabelFundoDescricao);
-        jLabelFundoDescricao.setBounds(-20, 0, 650, 710);
+        jLabelFundoDescricao.setBounds(-20, 0, 730, 710);
 
         jMenuAjudaProf.setText("Opções");
 
@@ -160,7 +160,8 @@ public class TelaDescricao extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        pack();
+        setSize(new java.awt.Dimension(719, 616));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBoxDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDisciplinasActionPerformed

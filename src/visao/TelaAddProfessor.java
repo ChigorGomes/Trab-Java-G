@@ -61,27 +61,27 @@ public class TelaAddProfessor extends javax.swing.JFrame {
         jLabelSexoProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelSexoProf.setText("Sexo:");
         getContentPane().add(jLabelSexoProf);
-        jLabelSexoProf.setBounds(510, 110, 50, 30);
+        jLabelSexoProf.setBounds(500, 80, 50, 30);
 
         jLabelAddCodigoProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAddCodigoProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAddCodigoProf.setText("SIAPE:");
         getContentPane().add(jLabelAddCodigoProf);
-        jLabelAddCodigoProf.setBounds(60, 160, 80, 30);
+        jLabelAddCodigoProf.setBounds(60, 130, 80, 30);
 
         jLabelAddEmailProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAddEmailProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAddEmailProf.setText("E-mail:");
         getContentPane().add(jLabelAddEmailProf);
-        jLabelAddEmailProf.setBounds(60, 210, 60, 30);
+        jLabelAddEmailProf.setBounds(60, 180, 60, 30);
 
         jLabelAddTelefoneProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelAddTelefoneProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelAddTelefoneProf.setText("Telefone:");
         getContentPane().add(jLabelAddTelefoneProf);
-        jLabelAddTelefoneProf.setBounds(60, 260, 100, 40);
+        jLabelAddTelefoneProf.setBounds(60, 230, 100, 40);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(140, 110, 330, 30);
+        jTextField1.setBounds(140, 80, 330, 30);
 
         jButtonAddProfessor.setBackground(new java.awt.Color(0, 153, 0));
         jButtonAddProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -92,13 +92,13 @@ public class TelaAddProfessor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAddProfessor);
-        jButtonAddProfessor.setBounds(430, 410, 110, 50);
+        jButtonAddProfessor.setBounds(400, 370, 110, 40);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(140, 160, 250, 30);
+        jTextField2.setBounds(140, 130, 250, 30);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(140, 210, 250, 30);
+        jTextField3.setBounds(140, 180, 250, 30);
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(140, 260, 250, 30);
+        jTextField4.setBounds(140, 230, 250, 30);
 
         jButtonVoltar.setBackground(new java.awt.Color(255, 102, 0));
         jButtonVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -109,35 +109,40 @@ public class TelaAddProfessor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonVoltar);
-        jButtonVoltar.setBounds(290, 410, 110, 50);
+        jButtonVoltar.setBounds(260, 370, 110, 40);
 
         jLabelNomeProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelNomeProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNomeProf.setText("Nome:");
         getContentPane().add(jLabelNomeProf);
-        jLabelNomeProf.setBounds(60, 100, 90, 40);
+        jLabelNomeProf.setBounds(60, 70, 90, 40);
 
         jRadioButtonSexoMasc.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonSexoMasc.setText("Masculino");
         getContentPane().add(jRadioButtonSexoMasc);
-        jRadioButtonSexoMasc.setBounds(570, 110, 100, 23);
+        jRadioButtonSexoMasc.setBounds(560, 80, 100, 23);
 
         jRadioButtonSexoFem.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButtonSexoFem.setText("Feminino");
+        jRadioButtonSexoFem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonSexoFemActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadioButtonSexoFem);
-        jRadioButtonSexoFem.setBounds(690, 110, 93, 23);
+        jRadioButtonSexoFem.setBounds(560, 110, 93, 23);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(140, 320, 280, 30);
+        jTextField5.setBounds(140, 290, 280, 30);
 
         jLabelEnderecoProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelEnderecoProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEnderecoProf.setText("Endereço:");
         getContentPane().add(jLabelEnderecoProf);
-        jLabelEnderecoProf.setBounds(60, 320, 90, 40);
+        jLabelEnderecoProf.setBounds(60, 290, 90, 40);
 
         jLabelFundoDadosProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         getContentPane().add(jLabelFundoDadosProf);
-        jLabelFundoDadosProf.setBounds(30, 0, 820, 570);
+        jLabelFundoDadosProf.setBounds(0, 0, 700, 570);
 
         jMenuSairProf.setText("Sair");
 
@@ -148,7 +153,8 @@ public class TelaAddProfessor extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        pack();
+        setSize(new java.awt.Dimension(709, 573));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProfessorActionPerformed
@@ -162,6 +168,10 @@ public class TelaAddProfessor extends javax.swing.JFrame {
         telaVoltar.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jRadioButtonSexoFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSexoFemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButtonSexoFemActionPerformed
 
     /**
      * @param args the command line arguments

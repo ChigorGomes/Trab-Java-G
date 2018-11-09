@@ -34,19 +34,20 @@ public class TelaLogin extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabelLogoIcomp = new javax.swing.JLabel();
         jLabelLogoUsuario = new javax.swing.JLabel();
-        jButtonSair = new javax.swing.JButton();
+        jButtonCadastrarUsuario = new javax.swing.JButton();
         jLabelFundoTelaLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabelUsuario.setText("Usuário:");
         getContentPane().add(jLabelUsuario);
-        jLabelUsuario.setBounds(190, 110, 50, 14);
+        jLabelUsuario.setBounds(170, 110, 70, 17);
 
         jLabelSenha.setText("Senha:");
         getContentPane().add(jLabelSenha);
-        jLabelSenha.setBounds(190, 150, 40, 14);
+        jLabelSenha.setBounds(170, 150, 60, 17);
 
         jButtonEntrar.setText("Entrar");
         jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +56,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonEntrar);
-        jButtonEntrar.setBounds(240, 190, 73, 23);
+        jButtonEntrar.setBounds(230, 190, 73, 31);
 
         jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,20 +82,20 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jLabelLogoUsuario);
         jLabelLogoUsuario.setBounds(280, 10, 70, 70);
 
-        jButtonSair.setText("Sair");
-        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrarUsuario.setText("Cadastrar");
+        jButtonCadastrarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSairActionPerformed(evt);
+                jButtonCadastrarUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSair);
-        jButtonSair.setBounds(320, 190, 60, 23);
+        getContentPane().add(jButtonCadastrarUsuario);
+        jButtonCadastrarUsuario.setBounds(310, 190, 90, 31);
 
         jLabelFundoTelaLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundo.jpg"))); // NOI18N
         getContentPane().add(jLabelFundoTelaLogin);
-        jLabelFundoTelaLogin.setBounds(0, 0, 400, 300);
+        jLabelFundoTelaLogin.setBounds(0, 0, 410, 300);
 
-        setSize(new java.awt.Dimension(416, 339));
+        setSize(new java.awt.Dimension(418, 330));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,9 +114,11 @@ public class TelaLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
-    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonSairActionPerformed
+    private void jButtonCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarUsuarioActionPerformed
+       TelaCadastroUsuario tela2 = new TelaCadastroUsuario();
+        tela2.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonCadastrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,8 +156,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCadastrarUsuario;
     private javax.swing.JButton jButtonEntrar;
-    private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabelFundoTelaLogin;
     private javax.swing.JLabel jLabelLogoIcomp;
     private javax.swing.JLabel jLabelLogoUsuario;
