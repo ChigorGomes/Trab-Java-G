@@ -16,8 +16,6 @@ public class BancoDeDados {
 
         try {
             conexao = DriverManager.getConnection(url, user, pass);
-            System.out.println("Conectado!!");
-            
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
