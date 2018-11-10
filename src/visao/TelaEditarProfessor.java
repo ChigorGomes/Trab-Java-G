@@ -15,13 +15,24 @@ import javax.swing.JOptionPane;
  */
 public class TelaEditarProfessor extends javax.swing.JFrame {
 
-    Docente docente= new Docente();
-    DocenteDAO docenteDAO= new DocenteDAO();
+    Docente docente = new Docente();
+    DocenteDAO docenteDAO = new DocenteDAO();
+
     /**
      * Creates new form TelaDadosProfessor
      */
-    public TelaEditarProfessor() {
+    public TelaEditarProfessor(int codigo) {
         initComponents();
+        docente = docenteDAO.recuperaDados(codigo);
+        jTextFieldNome.setText(docente.getNome());
+        jTextFieldSexo.setText(docente.getSexo());
+        jTextFieldEmail.setText(docente.getEmail());
+        jFormattedTextFieldTelefone.setText(docente.getTelefone());
+        jTextFieldEndereco.setText(docente.getEndereco());
+    }
+
+    private TelaEditarProfessor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -43,8 +54,8 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
         jButtonVoltar = new javax.swing.JButton();
         jLabelNomeProf = new javax.swing.JLabel();
         jTextFieldEndereco = new javax.swing.JTextField();
+        jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         jLabelEnderecoProf = new javax.swing.JLabel();
-        jTextFieldTelefone = new javax.swing.JTextField();
         jTextFieldSexo = new javax.swing.JTextField();
         jLabelFundoDadosProf = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -78,6 +89,8 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
         jLabelAddTelefoneProf.setText("Telefone:");
         getContentPane().add(jLabelAddTelefoneProf);
         jLabelAddTelefoneProf.setBounds(60, 190, 100, 40);
+
+        jTextFieldNome.setEnabled(false);
         getContentPane().add(jTextFieldNome);
         jTextFieldNome.setBounds(140, 80, 330, 30);
 
@@ -113,15 +126,23 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
         getContentPane().add(jTextFieldEndereco);
         jTextFieldEndereco.setBounds(140, 250, 270, 30);
 
+        try {
+            jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        getContentPane().add(jFormattedTextFieldTelefone);
+        jFormattedTextFieldTelefone.setBounds(140, 200, 270, 20);
+
         jLabelEnderecoProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelEnderecoProf.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEnderecoProf.setText("Endereço:");
         getContentPane().add(jLabelEnderecoProf);
         jLabelEnderecoProf.setBounds(60, 250, 90, 40);
-        getContentPane().add(jTextFieldTelefone);
-        jTextFieldTelefone.setBounds(140, 200, 270, 29);
+
+        jTextFieldSexo.setEnabled(false);
         getContentPane().add(jTextFieldSexo);
-        jTextFieldSexo.setBounds(550, 80, 120, 29);
+        jTextFieldSexo.setBounds(550, 80, 120, 19);
 
         jLabelFundoDadosProf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         jLabelFundoDadosProf.setPreferredSize(new java.awt.Dimension(1000, 956));
@@ -142,31 +163,21 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProfessorActionPerformed
-        if (jTextFieldNome.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite o nome!");
-        } else if (jComboBoxSexo.getSelectedIndex() == -1) {
-            JOptionPane.showMessageDialog(null, "selecione o sexo!");
-        } else if (jTextFieldEmail.getText().equals("")) {
+        if (jTextFieldEmail.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite o email!");
         } else if (jFormattedTextFieldTelefone.getText().equalsIgnoreCase("(  )    -    ")) {
             JOptionPane.showMessageDialog(null, "Digite o telefone!");
         } else if (jTextFieldEndereco.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite o Endereço!");
-        }else {
-            docente.setNome(jTextFieldNome.getText());
-            docente.setSexo(String.valueOf(jComboBoxSexo.getSelectedItem()));
+        } else {
             docente.setEmail(jTextFieldEmail.getText());
-            docente.setTelefone(jFormattedTextFieldTelefone.getText());
+            docente.setTelefone(String.valueOf(jFormattedTextFieldTelefone.getText()));
             docente.setEndereco(jTextFieldEndereco.getText());
-            if(docenteDAO.salvarDocente(docente)==true){
+            if (docenteDAO.alterar(docente) == true) {
                 new TelaPrincipal().setVisible(true);
                 dispose();
-            }else{
-                new TelaEditarProfessor().setVisible(true);
-                dispose();
-                jTextFieldNome.requestFocus();
             }
-            
+
         }
     }//GEN-LAST:event_jButtonAddProfessorActionPerformed
 
@@ -217,6 +228,7 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddProfessor;
     private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabelAddEmailProf;
     private javax.swing.JLabel jLabelAddTelefoneProf;
     private javax.swing.JLabel jLabelEnderecoProf;
@@ -231,6 +243,5 @@ public class TelaEditarProfessor extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEndereco;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldSexo;
-    private javax.swing.JTextField jTextFieldTelefone;
     // End of variables declaration//GEN-END:variables
 }

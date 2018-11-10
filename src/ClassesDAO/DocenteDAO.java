@@ -107,4 +107,73 @@ public class DocenteDAO extends BancoDeDados {
         }
     }
 
+    public boolean acessaTabela(Docente docente, int codigo) {
+        try {
+            Statement st = conexao.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM docente WHERE id_siape=" + codigo + "");
+            resultado.first();
+
+            docente.setIdSiape(resultado.getInt("id_siape"));
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao selecionar dados!" + ex);
+            return false;
+        }
+
+    }
+
+    public boolean excluir(int idProfessor) {
+
+        try {
+            Statement st = conexao.createStatement();
+            st.executeUpdate("DELETE FROM docente WHERE id_siape=" + idProfessor + "");
+            JOptionPane.showMessageDialog(null, "Excluido com Sucesso!");
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir!" + ex);
+            return false;
+        }
+
+    }
+
+    public Docente recuperaDados(int codigo) {
+       Docente docente= new Docente();
+        try {
+            Statement st = conexao.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM docente WHERE id_siape=" +codigo  + "");
+            resultado.first();
+
+            docente.setIdSiape(resultado.getInt("id_siape"));
+            docente.setNome(resultado.getString("nome"));
+            docente.setSexo(resultado.getString("sexo"));
+            docente.setEmail(resultado.getString("email"));
+            docente.setTelefone(resultado.getString("telefone"));
+            docente.setEndereco(resultado.getString("endereco"));
+            
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao buscar!" + ex);
+
+        }
+        return docente;
+    }
+    
+     public boolean alterar(Docente docente) {
+
+        try {
+            Statement st = conexao.createStatement();
+
+            st.executeUpdate("UPDATE docente SET email='" +docente.getEmail()+"', telefone='"+docente.getTelefone()+"',endereco='"+docente.getEndereco() + "' WHERE id_siape=" + docente.getIdSiape());
+            JOptionPane.showMessageDialog(null, "Dados alterados com sucesso!");
+
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Dados não alterados!");
+            return false;
+        }
+    }
+
+
 }

@@ -8,6 +8,7 @@ package visao;
 import ClassesDAO.DocenteDAO;
 import classes.Docente;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,8 +18,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    Docente docente= new Docente();
-    DocenteDAO docenteDAO= new DocenteDAO();
+    Docente docente = new Docente();
+    DocenteDAO docenteDAO = new DocenteDAO();
+    String nome = "";
+
     /**
      * Creates new form TelaPrincipal
      */
@@ -27,7 +30,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         listaTodos();
     }
 
-     public void listaTodos() {
+    public void listaTodos() {
 
         Vector<Docente> listaNomes = docenteDAO.mostraTodosProfessores();
         Vector conjuntoLinhas = new Vector();
@@ -59,6 +62,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTableDocente.getTableHeader().setReorderingAllowed(false);
         jTableDocente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +75,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonAddProfessor = new javax.swing.JButton();
         jButtonAlterarProfessor = new javax.swing.JButton();
+        jButtonSelecionar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButtonRemoverProfessor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -105,6 +110,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonAlterarProfessor.setBackground(new java.awt.Color(255, 102, 0));
         jButtonAlterarProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAlterarProfessor.setText("Alterar");
+        jButtonAlterarProfessor.setEnabled(false);
         jButtonAlterarProfessor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAlterarProfessorActionPerformed(evt);
@@ -112,6 +118,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonAlterarProfessor);
         jButtonAlterarProfessor.setBounds(310, 420, 100, 50);
+
+        jButtonSelecionar.setText("Selecionar");
+        jButtonSelecionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelecionarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButtonSelecionar);
+        jButtonSelecionar.setBounds(50, 370, 109, 25);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -127,6 +142,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonRemoverProfessor.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemoverProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRemoverProfessor.setText("Remover");
+        jButtonRemoverProfessor.setEnabled(false);
+        jButtonRemoverProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoverProfessorActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonRemoverProfessor);
         jButtonRemoverProfessor.setBounds(440, 420, 100, 50);
 
@@ -172,19 +193,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProfessorActionPerformed
-        TelaAddProfessor telaAddProf = new TelaAddProfessor ();
+        TelaAddProfessor telaAddProf = new TelaAddProfessor();
         telaAddProf.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonAddProfessorActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-        TelaLogin telasair = new TelaLogin ();
+        TelaLogin telasair = new TelaLogin();
         telasair.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItemSairActionPerformed
 
     private void jButtonAlterarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProfessorActionPerformed
         // TODO add your handling code here:
+        int codigo= Integer.parseInt(nome);
+        new TelaEditarProfessor(codigo).setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonAlterarProfessorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -192,6 +216,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
         new TelaDescricao().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelecionarActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if (jTableDocente.getSelectedRow() >= 0) {
+            nome = "" + jTableDocente.getModel().getValueAt(jTableDocente.getSelectedRow(), 0);
+            docenteDAO.acessaTabela(docente, Integer.parseInt(nome));
+            System.out.println(nome);
+            jButtonAlterarProfessor.setEnabled(true);
+            jButtonRemoverProfessor.setEnabled(true);
+
+        }
+    }//GEN-LAST:event_jButtonSelecionarActionPerformed
+
+    private void jButtonRemoverProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverProfessorActionPerformed
+        // TODO add your handling code here:
+        String message = "Voce deseja realmente  excluir?";
+
+        int reply = JOptionPane.showConfirmDialog(null, message, "", JOptionPane.YES_NO_OPTION);
+        if (reply == JOptionPane.YES_OPTION) {
+            docenteDAO.excluir(Integer.parseInt(nome));
+            new TelaPrincipal().setVisible(true);
+            dispose();
+        }
+
+
+    }//GEN-LAST:event_jButtonRemoverProfessorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +284,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddProfessor;
     private javax.swing.JButton jButtonAlterarProfessor;
     private javax.swing.JButton jButtonRemoverProfessor;
+    private javax.swing.JButton jButtonSelecionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFundoPrincipal;
     private javax.swing.JMenu jMenuAjuda;
