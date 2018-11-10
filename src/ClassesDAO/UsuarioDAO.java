@@ -10,8 +10,6 @@ import classes.Usuario;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author marcos
@@ -32,7 +30,7 @@ public class UsuarioDAO extends BancoDeDados {
                 return false;
 
             } else {
-                st.executeUpdate("INSERT INTO usuario VALUES(NULL, '" + usuario.getLogin()+ "' , '" + usuario.getSenha() + "')");
+                st.executeUpdate("INSERT INTO usuario VALUES(NULL, '" + usuario.getLogin() + "' , '" + usuario.getSenha() + "')");
                 JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
 
                 return true;
@@ -45,4 +43,23 @@ public class UsuarioDAO extends BancoDeDados {
 
     }
 
+    public boolean acessar(Usuario usu) {
+        try {
+            Statement st = conexao.createStatement();
+            ResultSet resultado = st.executeQuery("SELECT * FROM usuario WHERE login= '" + usu.getLogin() + "' and senha='" + usu.getSenha() + "'");
+            if (resultado.first()) {
+                JOptionPane.showMessageDialog(null, "Acessado com sucesso! ");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Acessado negado!");
+            }
+
+            return false;
+        } catch (SQLException e) {
+
+            JOptionPane.showMessageDialog(null, e);
+
+            return false;
+        }
+    }
 }

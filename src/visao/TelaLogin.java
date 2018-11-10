@@ -5,11 +5,18 @@
  */
 package visao;
 
+import ClassesDAO.UsuarioDAO;
+import classes.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MARCOS
  */
 public class TelaLogin extends javax.swing.JFrame {
+
+    Usuario usuario = new Usuario();
+    UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     /**
      * Creates new form TelaLogin
@@ -105,9 +112,26 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
 
-        TelaPrincipal telaa = new TelaPrincipal();
-        telaa.setVisible(true);
-        dispose();
+        if (jTextFieldUsuario.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite o seu login!");
+            jTextFieldUsuario.requestFocus();
+        } else if (new String(jPasswordField1.getPassword()).equals("")) {
+            JOptionPane.showMessageDialog(null, "Digite a sua senha!");
+            jPasswordField1.requestFocus();
+
+        } else {
+            usuario.setLogin(jTextFieldUsuario.getText());
+            usuario.setSenha(new String(jPasswordField1.getPassword()));
+            if (usuarioDAO.acessar(usuario) == true) {
+                new TelaPrincipal().setVisible(true);
+                dispose();
+            } else {
+                new TelaLogin().setVisible(true);
+                dispose();
+                jTextFieldUsuario.requestFocus();
+            }
+
+        }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
@@ -115,7 +139,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonCadastrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarUsuarioActionPerformed
-       TelaCadastroUsuario tela2 = new TelaCadastroUsuario();
+        TelaCadastroUsuario tela2 = new TelaCadastroUsuario();
         tela2.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadastrarUsuarioActionPerformed

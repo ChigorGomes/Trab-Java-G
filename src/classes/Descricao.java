@@ -16,6 +16,22 @@ public class Descricao {
     private String descricaoCoordenacao;
     private int codigo;
 
+    private String nomeDisciplina;
+
+    public String getNomeDisciplina() {
+        return nomeDisciplina;
+    }
+
+    public void setNomeDisciplina(String nomeDisciplina) {
+        this.nomeDisciplina = nomeDisciplina;
+    }
+
+    public Descricao(String tipoDeOrientacao, String nomeDoArtigo, String descricaoCoordenacao, String nomeDisciplina) {
+        this.tipoDeOrientacao = tipoDeOrientacao;
+        this.nomeDoArtigo = nomeDoArtigo;
+        this.descricaoCoordenacao = descricaoCoordenacao;
+        this.nomeDisciplina = nomeDisciplina;
+    }
     
     public Descricao (){
         

@@ -10,15 +10,20 @@ package classes;
  * @author marcos
  */
 public class Disciplinas {
+
     private int codigoDisciplina;
     private String nome;
     private int siape;
 
-    
-    public Disciplinas (){
-        
-        
+    public Disciplinas(int codigoDisciplina, String nome) {
+        this.codigoDisciplina = codigoDisciplina;
+        this.nome = nome;
     }
+
+    public Disciplinas() {
+
+    }
+
     public int getCodigoDisciplina() {
         return codigoDisciplina;
     }
@@ -42,7 +47,10 @@ public class Disciplinas {
     public void setSiape(int siape) {
         this.siape = siape;
     }
-    
-    
-        
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+
 }

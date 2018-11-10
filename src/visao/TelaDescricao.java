@@ -5,18 +5,69 @@
  */
 package visao;
 
+import ClassesDAO.DescricaoDAO;
+import ClassesDAO.DocenteDAO;
+import classes.Descricao;
+import classes.Docente;
+import java.util.Vector;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MARCOS
  */
 public class TelaDescricao extends javax.swing.JFrame {
 
+    Docente docente = new Docente();
+    DocenteDAO docenteDAO = new DocenteDAO();
+    Descricao descricao= new Descricao();
+    DescricaoDAO descricaoDAO= new DescricaoDAO();
+
     /**
      * Creates new form TelaDescricaoRit
      */
     public TelaDescricao() {
         initComponents();
+        listaTodos();
+        
     }
+
+    public void listaTodos() {
+
+        Vector<Descricao> listaNomes = descricaoDAO.mostrarDescricao();
+        Vector conjuntoLinhas = new Vector();
+
+        for (Descricao con : listaNomes) {
+            Vector linha = new Vector();
+            linha.add(con.getNomeDisciplina());
+            linha.add(con.getNomeDoArtigo());
+            linha.add(con.getTipoDeOrientacao());
+            linha.add(con.getDescricaoCoordenacao());
+
+            conjuntoLinhas.add(linha);
+
+        }
+        Vector conjuntoColunas = new Vector();
+        conjuntoColunas.add("NOME DISCIPLINA");
+        conjuntoColunas.add("NOME DO ARTIGO");
+        conjuntoColunas.add("TIPO");
+        conjuntoColunas.add("DESCRIÇÃO");
+
+        DefaultTableModel tabela = new DefaultTableModel(conjuntoLinhas, conjuntoColunas);
+
+        jTableDescricao.setModel(tabela);
+
+        jTableDescricao.getColumnModel().getColumn(0).setResizable(false);
+        jTableDescricao.getColumnModel().getColumn(1).setResizable(false);
+        jTableDescricao.getColumnModel().getColumn(2).setResizable(false);
+        jTableDescricao.getColumnModel().getColumn(3).setResizable(false);
+        //jTableListaConsulta.getColumnModel().getColumn(4).setResizable(false);
+
+        jTableDescricao.getTableHeader().setReorderingAllowed(false);
+        jTableDescricao.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,17 +79,9 @@ public class TelaDescricao extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelInfoRit = new javax.swing.JLabel();
-        jLabelDisciplinas = new javax.swing.JLabel();
-        jComboBoxDisciplinas = new javax.swing.JComboBox<>();
-        jLabelAlunosOrientados = new javax.swing.JLabel();
-        jRadioButtonAlunosGraduacao = new javax.swing.JRadioButton();
-        jRadioButtonAlunosIniciacao = new javax.swing.JRadioButton();
-        jRadioButtonAlunosMestrado = new javax.swing.JRadioButton();
-        jRadioButtonAlunosDoutorado = new javax.swing.JRadioButton();
-        jLabelArtigosPub = new javax.swing.JLabel();
-        jButtonUploadArtigo = new javax.swing.JButton();
-        jLabelAtivCoord = new javax.swing.JLabel();
-        jTextFieldDescAtividadeCoord = new javax.swing.JTextField();
+        jButtonVoltar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableDescricao = new javax.swing.JTable();
         jLabelFundoDescricao = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAjudaProf = new javax.swing.JMenu();
@@ -55,80 +98,33 @@ public class TelaDescricao extends javax.swing.JFrame {
         getContentPane().add(jLabelInfoRit);
         jLabelInfoRit.setBounds(40, 20, 550, 40);
 
-        jLabelDisciplinas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelDisciplinas.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDisciplinas.setText("Disciplinas:");
-        getContentPane().add(jLabelDisciplinas);
-        jLabelDisciplinas.setBounds(60, 80, 90, 40);
-
-        jComboBoxDisciplinas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<< Selecione uma das opções >>", "Arquitetura de Computares", "Algoritmos e Estruturas de Dados I", "Algoritmos e Estruturas de Dados II", "Análise e Projetos de Sistemas", "Avaliação de Desempenho", "Banco de Dados I", "Computação Númerica", "Compiladores", "Empreendedorismo em Informática", "Introdução a Computação", "Introdução a Engenharia de Software", "Introdução a Teoria de Grafos", "Inteligência Artificial ", "Introdução a Computação Gráfica", "Interação Humano-Computador", "Informática Ética e Sociedade", "Laboratório de Programção Avançada", "Linguagem Formais e Automatos", "Matemática Discreta", "Metodologia Cientifica em Ciência da Computação", "Organização de Computadores", "Paradigmas de Linguagem de Programação", "Projeto e Análise de Algoritmos", "Programação Web", "Redes de Computadores", "Sistemas Lógicos", "Sistemas Operacionais", "Técnicas Avançadas de Programação", "Textos Técnicos em Ciencia da Computação " }));
-        jComboBoxDisciplinas.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltar.setBackground(new java.awt.Color(255, 102, 0));
+        jButtonVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxDisciplinasActionPerformed(evt);
+                jButtonVoltarActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBoxDisciplinas);
-        jComboBoxDisciplinas.setBounds(150, 90, 290, 20);
+        getContentPane().add(jButtonVoltar);
+        jButtonVoltar.setBounds(50, 470, 110, 40);
 
-        jLabelAlunosOrientados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelAlunosOrientados.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAlunosOrientados.setText("Alunos Orientados:");
-        getContentPane().add(jLabelAlunosOrientados);
-        jLabelAlunosOrientados.setBounds(60, 130, 150, 30);
+        jTableDescricao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
 
-        jRadioButtonAlunosGraduacao.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButtonAlunosGraduacao.setText("Alunos de Graduação - TCC");
-        jRadioButtonAlunosGraduacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonAlunosGraduacaoActionPerformed(evt);
             }
-        });
-        getContentPane().add(jRadioButtonAlunosGraduacao);
-        jRadioButtonAlunosGraduacao.setBounds(200, 130, 180, 23);
+        ));
+        jTableDescricao.setEnabled(false);
+        jScrollPane2.setViewportView(jTableDescricao);
 
-        jRadioButtonAlunosIniciacao.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButtonAlunosIniciacao.setText("Alunos de Graduação - Iniciação Científica");
-        getContentPane().add(jRadioButtonAlunosIniciacao);
-        jRadioButtonAlunosIniciacao.setBounds(390, 130, 300, 23);
-
-        jRadioButtonAlunosMestrado.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButtonAlunosMestrado.setText("Alunos de Mestrado");
-        getContentPane().add(jRadioButtonAlunosMestrado);
-        jRadioButtonAlunosMestrado.setBounds(200, 170, 180, 23);
-
-        jRadioButtonAlunosDoutorado.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButtonAlunosDoutorado.setText("Alunos de Doutorado");
-        getContentPane().add(jRadioButtonAlunosDoutorado);
-        jRadioButtonAlunosDoutorado.setBounds(390, 160, 180, 23);
-
-        jLabelArtigosPub.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelArtigosPub.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelArtigosPub.setText("Artigos Publicados:");
-        getContentPane().add(jLabelArtigosPub);
-        jLabelArtigosPub.setBounds(60, 220, 140, 30);
-
-        jButtonUploadArtigo.setText("Faça o upload");
-        jButtonUploadArtigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUploadArtigoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonUploadArtigo);
-        jButtonUploadArtigo.setBounds(210, 220, 170, 30);
-
-        jLabelAtivCoord.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabelAtivCoord.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAtivCoord.setText("Atividades de Coordenação:");
-        getContentPane().add(jLabelAtivCoord);
-        jLabelAtivCoord.setBounds(60, 280, 240, 20);
-
-        jTextFieldDescAtividadeCoord.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDescAtividadeCoordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldDescAtividadeCoord);
-        jTextFieldDescAtividadeCoord.setBounds(260, 280, 310, 130);
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(50, 70, 590, 360);
 
         jLabelFundoDescricao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/fundoficial.png"))); // NOI18N
         getContentPane().add(jLabelFundoDescricao);
@@ -164,33 +160,21 @@ public class TelaDescricao extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBoxDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDisciplinasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxDisciplinasActionPerformed
-
-    private void jRadioButtonAlunosGraduacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAlunosGraduacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonAlunosGraduacaoActionPerformed
-
-    private void jButtonUploadArtigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUploadArtigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonUploadArtigoActionPerformed
-
-    private void jTextFieldDescAtividadeCoordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescAtividadeCoordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDescAtividadeCoordActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaProfessor telavoltarprof = new TelaProfessor ();
-        telavoltarprof.setVisible(true);
-        dispose();
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItemSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSairActionPerformed
-        TelaLogin telasair1 = new TelaLogin ();
+        TelaLogin telasair1 = new TelaLogin();
         telasair1.setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenuItemSairActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        TelaPrincipal telaVoltar = new TelaPrincipal();
+        telaVoltar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,12 +213,7 @@ public class TelaDescricao extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonUploadArtigo;
-    private javax.swing.JComboBox<String> jComboBoxDisciplinas;
-    private javax.swing.JLabel jLabelAlunosOrientados;
-    private javax.swing.JLabel jLabelArtigosPub;
-    private javax.swing.JLabel jLabelAtivCoord;
-    private javax.swing.JLabel jLabelDisciplinas;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JLabel jLabelFundoDescricao;
     private javax.swing.JLabel jLabelInfoRit;
     private javax.swing.JMenu jMenuAjudaProf;
@@ -242,10 +221,7 @@ public class TelaDescricao extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenu jMenuSairProf;
-    private javax.swing.JRadioButton jRadioButtonAlunosDoutorado;
-    private javax.swing.JRadioButton jRadioButtonAlunosGraduacao;
-    private javax.swing.JRadioButton jRadioButtonAlunosIniciacao;
-    private javax.swing.JRadioButton jRadioButtonAlunosMestrado;
-    private javax.swing.JTextField jTextFieldDescAtividadeCoord;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableDescricao;
     // End of variables declaration//GEN-END:variables
 }

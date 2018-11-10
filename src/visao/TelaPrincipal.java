@@ -5,19 +5,60 @@
  */
 package visao;
 
+import ClassesDAO.DocenteDAO;
+import classes.Docente;
+import java.util.Vector;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MARCOS
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
+    Docente docente= new Docente();
+    DocenteDAO docenteDAO= new DocenteDAO();
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
+        listaTodos();
     }
 
+     public void listaTodos() {
+
+        Vector<Docente> listaNomes = docenteDAO.mostraTodosProfessores();
+        Vector conjuntoLinhas = new Vector();
+
+        for (Docente con : listaNomes) {
+            Vector linha = new Vector();
+            linha.add(con.getIdSiape());
+            linha.add(con.getNome());
+            linha.add(con.getEmail());
+
+            conjuntoLinhas.add(linha);
+
+        }
+        Vector conjuntoColunas = new Vector();
+        conjuntoColunas.add("ID");
+        conjuntoColunas.add("NOME");
+        conjuntoColunas.add("EMAIL");
+
+        DefaultTableModel tabela = new DefaultTableModel(conjuntoLinhas, conjuntoColunas);
+
+        jTableDocente.setModel(tabela);
+
+        jTableDocente.getColumnModel().getColumn(0).setResizable(false);
+        jTableDocente.getColumnModel().getColumn(1).setResizable(false);
+        jTableDocente.getColumnModel().getColumn(2).setResizable(false);
+        //jTableListaConsulta.getColumnModel().getColumn(3).setResizable(false);
+        //jTableListaConsulta.getColumnModel().getColumn(4).setResizable(false);
+
+        jTableDocente.getTableHeader().setReorderingAllowed(false);
+        jTableDocente.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,16 +71,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButtonAddProfessor = new javax.swing.JButton();
         jButtonAlterarProfessor = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButtonRemoverProfessor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableDocente = new javax.swing.JTable();
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAjuda = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
         jMenuItemSair = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -58,7 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAddProfessor);
-        jButtonAddProfessor.setBounds(250, 420, 110, 50);
+        jButtonAddProfessor.setBounds(120, 420, 110, 50);
 
         jButtonAlterarProfessor.setBackground(new java.awt.Color(255, 102, 0));
         jButtonAlterarProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -69,26 +111,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonAlterarProfessor);
-        jButtonAlterarProfessor.setBounds(390, 420, 100, 50);
+        jButtonAlterarProfessor.setBounds(310, 420, 100, 50);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 0));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Gerar Relatório");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(580, 420, 140, 50);
 
         jButtonRemoverProfessor.setBackground(new java.awt.Color(255, 0, 0));
         jButtonRemoverProfessor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonRemoverProfessor.setText("Remover");
         getContentPane().add(jButtonRemoverProfessor);
-        jButtonRemoverProfessor.setBounds(520, 420, 100, 50);
+        jButtonRemoverProfessor.setBounds(440, 420, 100, 50);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDocente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableDocente);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(50, 70, 720, 280);
@@ -114,7 +167,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        pack();
+        setSize(new java.awt.Dimension(828, 548));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,6 +186,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButtonAlterarProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarProfessorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAlterarProfessorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new TelaDescricao().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,6 +229,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAddProfessor;
     private javax.swing.JButton jButtonAlterarProfessor;
     private javax.swing.JButton jButtonRemoverProfessor;
@@ -180,6 +240,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSair;
     private static javax.swing.JMenu jMenuSair;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableDocente;
     // End of variables declaration//GEN-END:variables
 }

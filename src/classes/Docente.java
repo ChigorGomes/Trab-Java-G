@@ -17,6 +17,19 @@ public class Docente {
     private String telefone;
     private String endereco;
 
+    public Docente(int idSiape, String nome) {
+        this.idSiape = idSiape;
+        this.nome = nome;
+    }
+
+    public Docente(int idSiape, String nome, String email) {
+        this.idSiape = idSiape;
+        this.nome = nome;
+        this.email = email;
+    }
+
+  
+
     
     public Docente (){
         
@@ -70,6 +83,10 @@ public class Docente {
         this.endereco = endereco;
     }
     
+      @Override
+    public String toString() {
+        return nome;
+    }
     
     
 }
